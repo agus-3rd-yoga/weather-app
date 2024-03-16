@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: weather-app
-  namespace: nodejs
+  name: weatherapp
+  namespace: demo
   labels:
-    app: nodejs
+    app: weatherapp
 spec:
   type: LoadBalancer
   ports:
-    - port: 80
-      targetPort: 3000
+  - port: 80
+    targetPort: 3000
   selector:
-    app: weather-app
+    app: weatherapp

@@ -1,25 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: weather-app
-  namespace: nodejs
+  name: weatherapp
+  namespace: demo
   labels:
-    app: weather-app
+    app: weatherapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: weather-app
+      app: weatherapp
   template:
     metadata:
       labels:
-        app: weather-app
+        app: weatherapp
     spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
       containers:
-        - name: weather-app
-          image: agus3rdyoga/weather-app:v1
-          ports:
-            - name: http
-              containerPort: 3000
+      - name: weatherapp
+        image: agus3rdyoga/weatherapp
+        ports:
+        - name: http
+          containerPort: 3000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 200Mi
