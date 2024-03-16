@@ -1,6 +1,6 @@
 # STAGE 1
 
-FROM node:20-alpine AS build
+FROM node:alpine AS build
 
 WORKDIR /app
 

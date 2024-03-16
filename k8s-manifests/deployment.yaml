@@ -20,7 +20,7 @@ spec:
         image: agus3rdyoga/weather-app
         ports:
         - name: http
-          containerPort: 3000
+          containerPort: 80
         resources:
           requests:
             cpu: 100m
