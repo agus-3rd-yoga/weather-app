@@ -6,7 +6,7 @@ metadata:
   labels:
     app: weatherapp
 spec:
-  type: LoadBalancer
+  type: ""
   ports:
   - port: 80
     targetPort: 80
