@@ -1,5 +1,5 @@
 node {
-    stage('Clone Repo') {
+    stage('Clone repo') {
         git branch: 'main', url:'https://github.com/agus-3rd-yoga/weather-app.git'
     }
 }
@@ -11,26 +11,30 @@ pipeline {
             args '-p 80:3000'
         }
     }
+
     stages {
-        stage('Build') {
+        stage('Build app') {
             steps {
                 sh 'npm install'
             }
         }
-        stage('Test') {
+
+        stage('Test app') {
             steps {
                 sh 'npm test --passWithNoTests'
             }
         }
-        stage('Manual Approval') {
-            steps {
-                script {
-                    sh 'sleep 1'
-                    input message: 'Lanjutkan ke tahap Deploy? (Click "Proceed" to continue)'
-                }
-            }
-        }
-        stage('Deploy') { 
+
+        //stage('Manual Approval') {
+            //steps {
+                //script {
+                    //sh 'sleep 1'
+                    //input message: 'Lanjutkan ke tahap Deploy? (Click "Proceed" to continue)'
+                //}
+            //}
+        //}
+
+        stage('Deploy app') { 
             steps {
                 sh 'npm install'
                 sh 'npm run build'
